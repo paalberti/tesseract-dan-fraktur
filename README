@@ -1,0 +1,7 @@
+Various training data files for Tesseract OCR (version 3.00+)
+
+* dan-frak/: Danish written in fraktur script (orthography prior to ca. 1867)
+* deu-frak/: German written in fraktur script
+* swe-frak/: Swedish written in fraktur script
+* dan/: slightly manipulated version of the Danish .traineddata shipped with upstream tesseract
+
