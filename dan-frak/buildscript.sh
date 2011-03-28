@@ -5,9 +5,9 @@ for i in *.tif
   tesseract $i ${i%.tif} nobatch box.train
 done
 unicharset_extractor *.box
-mftraining *.tr
+mftraining -F font_properties -U unicharset -O $LANG.unicharset *.tr
 cntraining *.tr
-for i in inttemp normproto pffmtable unicharset
+for i in inttemp normproto pffmtable
   do mv -f $i $LANG.$i
 done
 rm -f number
