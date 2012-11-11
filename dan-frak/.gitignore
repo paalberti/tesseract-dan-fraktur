@@ -1,0 +1,13 @@
+*.tr
+dan-frak.freq-dawg
+dan-frak.inttemp
+dan-frak.normproto
+dan-frak.number-dawg
+dan-frak.pffmtable
+dan-frak.punc-dawg
+dan-frak.unicharset
+dan-frak.word-dawg
+*.txt
+Microfeat
+unicharset
+*~

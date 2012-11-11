@@ -1,0 +1,13 @@
+*.tr
+swe-frak.freq-dawg
+swe-frak.inttemp
+swe-frak.normproto
+swe-frak.number-dawg
+swe-frak.pffmtable
+swe-frak.punc-dawg
+swe-frak.unicharset
+swe-frak.word-dawg
+*.txt
+Microfeat
+unicharset
+*~
