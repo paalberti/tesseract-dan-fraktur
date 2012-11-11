@@ -5,7 +5,8 @@ Various training data files for Tesseract OCR (version 3.00+)
 * swe-frak/: Swedish written in fraktur script. The wordlists for Swedish are from 
 Projekt Runeberg, http://runeberg.org/words/
 * dan/: slightly manipulated version of the Danish .traineddata shipped with upstream tesseract
-to not output annoying fi- and fl-ligatures all the time.
+to not output annoying fi- and fl-ligatures all the time. Since tesseract version 3.02, this 
+has become outdated. If you have this, it is a better solution to upgrade tesseract.
 
 The *-frak/ directories have a primitive script to compile the data files that only works on
 unix-like machines. If you aren't interested in working on training tesseract yourself, just
