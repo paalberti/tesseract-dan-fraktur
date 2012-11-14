@@ -1,18 +1,19 @@
 #!/bin/sh
-LANG=swe-frak
+LANGCODE=swe-frak
 for i in *.tif
   do echo $i:
   tesseract $i ${i%.tif} nobatch box.train
 done
 unicharset_extractor *.box
-shapeclustering -F font_properties -U unicharset *.tr
-mftraining -F font_properties -U unicharset -O $LANG.unicharset *.tr
+cat unicharset|sed -e "s/^\([æøåäöüâêàèéçß][a-z]*\) 0/\1 3/" -e "s/^\([ÆØÅÄÖÜÂÊÀÈÉÇ][a-z]*\) 0/\1 5/" -e "s/^\([«»„”·§—ɔ]\) 0/\1 10/" -e "s/^½ 0/½ 8/" > unicharset.edited
+shapeclustering -F font_properties -U unicharset.edited *.tr
+mftraining -F font_properties -U unicharset.edited -O $LANGCODE.unicharset *.tr
 cntraining *.tr
 for i in inttemp normproto pffmtable shapetable
-  do mv -f $i $LANG.$i
+  do mv -f $i $LANGCODE.$i
 done
-wordlist2dawg number $LANG.number-dawg $LANG.unicharset
-wordlist2dawg punc $LANG.punc-dawg $LANG.unicharset
-wordlist2dawg word_list $LANG.word-dawg $LANG.unicharset
-wordlist2dawg frequency_list $LANG.freq-dawg $LANG.unicharset
-combine_tessdata $LANG.
+wordlist2dawg number $LANGCODE.number-dawg $LANGCODE.unicharset
+wordlist2dawg punc $LANGCODE.punc-dawg $LANGCODE.unicharset
+wordlist2dawg word_list $LANGCODE.word-dawg $LANGCODE.unicharset
+wordlist2dawg frequency_list $LANGCODE.freq-dawg $LANGCODE.unicharset
+combine_tessdata $LANGCODE.
