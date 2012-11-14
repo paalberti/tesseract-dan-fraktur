@@ -5,7 +5,13 @@ for i in *.tif
   tesseract $i ${i%.tif} nobatch box.train
 done
 unicharset_extractor *.box
-cat unicharset|sed -e "s/^\([æøåäöüâêàèéçß][a-z]*\) 0/\1 3/" -e "s/^\([ÆØÅÄÖÜÂÊÀÈÉÇ][a-z]*\) 0/\1 5/" -e "s/^\([«»„”·§—ɔ]\) 0/\1 10/" -e "s/^½ 0/½ 8/" > unicharset.edited
+cat unicharset | sed -e "s/^\([æøåäöüâêàèéçß][a-z]*\) 0/\1 3/" \
+  -e "s/^\([ÆØÅÄÖÜÂÊÀÈÉÇ][a-z]*\) 0/\1 5/" \
+  -e "s/^\([«»„”·§—ɔ]\) 0/\1 10/" \
+  -e "s/^ɔ 3 /ɔ 10 /" \
+  -e "s/^½ 0/½ 8/" | sed -e "s/^\([æøåäöüâêàèéçßa-zÆØÅÄÖÜÂÊÀÈÉÇA-Z].*\) NULL /\1 Latin /" \
+  -e "s/^\([«»„”·§—ɔ[:punct:][:digit:]].*\) NULL /\1 Common /" \
+  -e "s/^\(&c .*\) Common /\1 Latin /" > unicharset.edited
 shapeclustering -F font_properties -U unicharset.edited *.tr
 mftraining -F font_properties -U unicharset.edited -O $LANGCODE.unicharset *.tr
 cntraining *.tr
