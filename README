@@ -1,4 +1,4 @@
-Various training data files for Tesseract OCR (version 3.00+)
+Various training data files for Tesseract OCR (version 3.02)
 
 * dan-frak/: Danish written in fraktur script (orthography prior to ca. 1867).
 * deu-frak/: German written in fraktur script.
@@ -6,7 +6,7 @@ Various training data files for Tesseract OCR (version 3.00+)
 Projekt Runeberg, http://runeberg.org/words/
 * dan/: slightly manipulated version of the Danish .traineddata shipped with upstream tesseract
 to not output annoying fi- and fl-ligatures all the time. Since tesseract version 3.02, this 
-has become outdated. If you have this, it is a better solution to upgrade tesseract.
+has become outdated. If you have this problem, it is a better solution to upgrade tesseract.
 
 The *-frak/ directories have a primitive script to compile the data files that only works on
 unix-like machines. If you aren't interested in working on training tesseract yourself, just
