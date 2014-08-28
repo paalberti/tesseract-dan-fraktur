@@ -1,0 +1,16 @@
+*.tr
+deu_frak.freq-dawg
+deu_frak.inttemp
+deu_frak.normproto
+deu_frak.number-dawg
+deu_frak.pffmtable
+deu_frak.punc-dawg
+deu_frak.unicharset
+deu_frak.word-dawg
+*.txt
+Microfeat
+unicharset
+*~
+shapetable
+deu_frak.shapetable
+unicharset.edited

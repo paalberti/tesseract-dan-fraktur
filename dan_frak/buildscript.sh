@@ -1,5 +1,5 @@
 #!/bin/sh
-LANGCODE=dan-frak
+LANGCODE=dan_frak
 for i in *.tif
   do echo $i:
   tesseract $i ${i%.tif} nobatch box.train
